@@ -7,14 +7,21 @@
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, World!");
+
+            //_20_ValidParentheses
+            _20_ValidParentheses _20_ValidParentheses = new _20_ValidParentheses();
+            Console.WriteLine(_20_ValidParentheses.IsValid("()"));
+            Console.WriteLine(_20_ValidParentheses.IsValid("()[]{}"));
+            Console.WriteLine(_20_ValidParentheses.IsValid("(]"));
+            Console.WriteLine(_20_ValidParentheses.IsValid("([])"));
+            Console.WriteLine(_20_ValidParentheses.IsValid("([)]"));
+
+
+            Console.ReadLine();
+
         }
 
 
-        //20. Valid Parentheses
-        public void ValidParentheses ()
-        {
-
-        }
 
 
 
