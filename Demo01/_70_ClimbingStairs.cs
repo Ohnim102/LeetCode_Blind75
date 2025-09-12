@@ -12,6 +12,7 @@ namespace Demo01
     - Mỗi lần có thể bước 1 bậc hoặc 2 bậc.
     - Cần tính số cách khác nhau để leo lên đỉnh.
     👉 Số cách leo lên bậc n = số cách leo lên bậc n-1 (sau đó bước 1 bậc) + số cách leo lên bậc n-2 (sau đó bước 2 bậc).
+    👉 Giống dãy số Fibonacci: n = (n-1) + (n-2)
      */
     public class _70_ClimbingStairs
     {
