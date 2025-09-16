@@ -16,6 +16,7 @@ namespace Demo01._141_LinkedListCycle
         /// <returns></returns>
         public bool HasCycle(ListNode head)
         {
+            //Approach 1: Brute force
             List<ListNode> list = new List<ListNode>();
             var current = head;
             while (current != null)
@@ -27,8 +28,10 @@ namespace Demo01._141_LinkedListCycle
                     return true;
                 }
             }
-
             return false;
+
+            //Approach 2: Floyd’s Cycle Detection
+            //One slow, one fast
         }
 
         /// <summary>
