@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Demo01.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -48,19 +49,6 @@ namespace Demo01._206_ReverseLinkedList
 
             // Nếu cả hai cùng null thì giống hệt
             return l1 == null && l2 == null;
-        }
-    }
-
-
-    // Definition for singly-linked list.
-    public class ListNode
-    {
-        public int val;
-        public ListNode next;
-        public ListNode(int val = 0, ListNode next = null)
-        {
-            this.val = val;
-            this.next = next;
         }
     }
 

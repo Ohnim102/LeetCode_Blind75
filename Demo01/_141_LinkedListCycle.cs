@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Demo01.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -86,19 +87,6 @@ namespace Demo01._141_LinkedListCycle
                 current.next = last;
             }
             return head;
-        }
-    }
-
-
-    //Definition for singly-linked list.
-    public class ListNode
-    {
-        public int val;
-        public ListNode next;
-        public ListNode(int x)
-        {
-            val = x;
-            next = null;
         }
     }
 }
