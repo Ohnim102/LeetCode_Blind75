@@ -51,6 +51,25 @@ namespace Demo01
             return true;
         }
 
+        /// <summary>
+        /// 268. Missing Number
+        /// Given an array nums containing n distinct numbers in the range [0, n].
+        /// Return the only number in the range that is missing from the array.
+        /// </summary>
+        public static int MissingNumber(int[] nums)
+        {
+            var n = nums.Length;
+            var expectTotal = n * (n + 1) / 2;
+            var actualTotal = 0;
+            
+            foreach (var i in nums)
+            {
+                actualTotal += i;
+            }
+
+            return expectTotal - actualTotal;
+        }
+
 
     }
 }
