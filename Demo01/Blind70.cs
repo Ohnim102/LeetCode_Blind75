@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Demo01.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,17 @@ namespace Demo01
 {
     public class Blind70
     {
+
+        public static bool IsSameTree(TreeNode p, TreeNode q)
+        {
+            if (p == null && q == null) return true;
+            if (p == null || q == null) return false;
+            if (p.val != q.val) return false;
+
+            // Recursively check if the left and right subtrees are identical
+            return IsSameTree(p.left, q.left) && IsSameTree(p.right, q.right);
+        }
+
         /// <summary>
         /// 242. Valid Anagram. 
         /// Given two strings s and t, return true if t is an anagram of s, and false otherwise.
@@ -68,6 +80,25 @@ namespace Demo01
             }
 
             return expectTotal - actualTotal;
+        }
+
+        /// <summary>
+        /// 572. Subtree of Another Tree
+        /// Given the roots of two binary trees root and subRoot, 
+        /// Return true if there is a subtree of root with the same structure and node values of subRoot and false otherwise.
+        /// A subtree of a binary tree tree is a tree that consists of a node in tree and all of this node's descendants. 
+        /// The tree tree could also be considered as a subtree of itself.
+        /// </summary>
+        /// <param name="root"></param>
+        /// <param name="subRoot"></param>
+        /// <returns></returns>
+        public static bool IsSubtree(TreeNode root, TreeNode subRoot)
+        {
+            if (root == null) return false;
+
+            if (IsSameTree(root, subRoot)) return true;
+
+            return IsSubtree(root.left, subRoot) || IsSubtree(root.right, subRoot);
         }
 
 
