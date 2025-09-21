@@ -74,5 +74,23 @@ namespace Test
             Assert.AreEqual(3, Blind70.LengthOfLongestSubstring("abcabcbb"));
         }
 
+        [TestMethod]
+        public void TestLongestPalindrome01()
+        {
+            Assert.AreEqual("bab", Blind70.LongestPalindrome("babad"));
+        }
+
+        [TestMethod]
+        public void TestLongestPalindrome02()
+        {
+            Assert.AreEqual("a", Blind70.LongestPalindrome("a"));
+        }
+
+        [TestMethod]
+        public void TestLongestPalindrome03()
+        {
+            Assert.AreEqual("bb", Blind70.LongestPalindrome("bb"));
+        }
+
     }
 }

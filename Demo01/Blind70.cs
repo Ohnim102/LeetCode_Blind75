@@ -10,6 +10,35 @@ namespace Demo01
     public class Blind70
     {
 
+        public static bool IsPalindrome(string s)
+        {
+            int left = 0, right = s.Length - 1;
+
+            while (left < right)
+            {
+                // bỏ ký tự không alphanumeric bên trái
+                while (left < right && !Char.IsLetterOrDigit(s[left]))
+                {
+                    left++;
+                }
+                // bỏ ký tự không alphanumeric bên phải
+                while (left < right && !Char.IsLetterOrDigit(s[right]))
+                {
+                    right--;
+                }
+
+                // so sánh sau khi chuyển lowercase
+                if (Char.ToLower(s[left]) != Char.ToLower(s[right]))
+                {
+                    return false;
+                }
+
+                left++;
+                right--;
+            }
+            return true;
+        }
+
         public static bool IsSameTree(TreeNode p, TreeNode q)
         {
             if (p == null && q == null) return true;
@@ -73,7 +102,7 @@ namespace Demo01
             var n = nums.Length;
             var expectTotal = n * (n + 1) / 2;
             var actualTotal = 0;
-            
+
             foreach (var i in nums)
             {
                 actualTotal += i;
@@ -129,5 +158,55 @@ namespace Demo01
 
             return maxLen;
         }
+
+        /// <summary>
+        /// 5. Longest Palindromic Substring. 
+        /// Given a string s, return the longest palindromic substring in s.
+        /// More info: Expand Around Center
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string LongestPalindrome(string s)
+        {
+            string res = "";
+            int resLen = 0;
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                //odd length
+                int left = i;
+                int right = i;
+                while (left >= 0 && right < s.Length && s[left] == s[right])
+                {
+                    if (right - left + 1 > resLen)
+                    {
+                        res = s.Substring(left, right - left + 1);
+                        resLen = res.Length;
+                    }
+
+                    left--;
+                    right++;
+                }
+
+                //even length
+                left = i;
+                right = i + 1;
+                while (left >= 0 && right < s.Length && s[left] == s[right])
+                {
+                    if (right - left + 1 > resLen)
+                    {
+                        res = s.Substring(left, right - left + 1);
+                        resLen = res.Length;
+                    }
+
+                    left--;
+                    right++;
+                }
+            }
+            return res;
+        }
+
+
+
     }
 }
