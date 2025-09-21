@@ -101,6 +101,33 @@ namespace Demo01
             return IsSubtree(root.left, subRoot) || IsSubtree(root.right, subRoot);
         }
 
+        /// <summary>
+        /// 3. Longest Substring Without Repeating Characters. 
+        /// Given a string s, find the length of the longest substring without duplicate characters.
+        /// (More info: Sliding windows method)
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static int LengthOfLongestSubstring(string s)
+        {
+            var seen = new Dictionary<char, int>();
+            int left = 0, maxLen = 0;
 
+            for (int right = 0; right < s.Length; right++)
+            {
+                char c = s[right];
+
+                if (seen.ContainsKey(c) && seen[c] >= left)
+                {
+                    // Move left pointer just past the previous occurrence
+                    left = seen[c] + 1;
+                }
+
+                seen[c] = right; // Update latest index of character
+                maxLen = Math.Max(maxLen, right - left + 1);
+            }
+
+            return maxLen;
+        }
     }
 }

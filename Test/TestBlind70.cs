@@ -68,5 +68,11 @@ namespace Test
             Assert.IsTrue(Blind70.IsSubtree(root, subRoot));
         }
 
+        [TestMethod]
+        public void TestLengthOfLongestSubstring01()
+        {
+            Assert.AreEqual(3, Blind70.LengthOfLongestSubstring("abcabcbb"));
+        }
+
     }
 }
