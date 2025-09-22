@@ -92,5 +92,11 @@ namespace Test
             Assert.AreEqual("bb", Blind70.LongestPalindrome("bb"));
         }
 
+        [TestMethod]
+        public void TestMaxArea01()
+        {
+            Assert.AreEqual(49, Blind70.MaxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]));
+        }
+
     }
 }

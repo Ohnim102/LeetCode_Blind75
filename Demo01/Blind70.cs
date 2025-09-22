@@ -1,9 +1,12 @@
 ﻿using Demo01.Model;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace Demo01
 {
@@ -206,6 +209,50 @@ namespace Demo01
             return res;
         }
 
+        /// <summary>
+        /// 11. Container With Most Water
+        /// You are given an integer array height of length n. 
+        /// There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
+        /// Find two lines that together with the x-axis form a container, such that the container contains the most water.
+        /// Return the maximum amount of water a container can store.
+        /// Notice that you may not slant the container.
+        /// More info: 2 pointers.
+        /// </summary>
+        /// <param name="height"></param>
+        /// <returns></returns>
+        public static int MaxArea(int[] height)
+        {
+            //Approach 1: Brute force
+            //int res = 0;
+            //for (int i = 0; i < height.Length; i++)
+            //{
+            //    for (int j = i + 1; j < height.Length; j++)
+            //    {
+            //        int area = Math.Min(height[i], height[j]) * (j - i);
+            //        if (area > res) res = area;
+            //    }
+            //}
+            //return res;
+
+
+            //Approach 2: Linear time solution O(n), 2 pointers
+            int res = 0;
+            int left = 0, right = height.Length - 1;
+            while (left < right)
+            {
+                res = Math.Max(res, Math.Min(height[left], height[right]) * (right - left));
+                if (height[left] < height[right])
+                {
+                    left++;
+                }
+                else //if (height[left] > height[right])
+                {
+                    right--;
+                }
+            }
+            return res;
+
+        }
 
 
     }
