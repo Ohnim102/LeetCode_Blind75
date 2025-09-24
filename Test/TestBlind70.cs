@@ -97,6 +97,50 @@ namespace Test
         {
             Assert.AreEqual(49, Blind70.MaxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]));
         }
+        
+        [TestMethod]
+        public void TestRemoveNthFromEnd01()
+        {
+            var input = ComService.CreateListNodeByArray([1, 2, 3, 4, 5]);
+
+            var expect = ComService.CreateListNodeByArray([1, 2, 3, 5]);
+            var actual = Blind70.RemoveNthFromEnd(input, 2);
+
+            var isEqual = ComService.AreListNodesEqual(expect, actual);
+            Assert.IsTrue(isEqual);
+        }
+
+        [TestMethod]
+        public void TestRemoveNthFromEnd02()
+        {
+            var input = ComService.CreateListNodeByArray([1]);
+
+            var expect = ComService.CreateListNodeByArray([]);
+            var actual = Blind70.RemoveNthFromEnd(input, 1);
+
+            var isEqual = ComService.AreListNodesEqual(expect, actual);
+            Assert.IsTrue(isEqual);
+        }
+
+        //[TestMethod]
+        //public void TestThreeSum01()
+        //{
+        //    Assert.AreEqual([[-1, -1, 2], [-1, 0, 1]], Blind70.ThreeSum([-1, 0, 1, 2, -1, -4]));
+        //}
+        
+        //[TestMethod]
+        //public void TestThreeSum02()
+        //{
+        //    Assert.AreEqual([], Blind70.ThreeSum([0, 1, 1]));
+        //}
+        
+        //[TestMethod]
+        //public void TestThreeSum03()
+        //{
+        //    Assert.AreEqual([[0, 0, 0]], Blind70.ThreeSum([0, 0, 0]));
+        //}
+
+
 
     }
 }

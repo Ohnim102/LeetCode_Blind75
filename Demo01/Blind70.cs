@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Numerics;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Formats.Asn1.AsnWriter;
@@ -251,8 +252,96 @@ namespace Demo01
                 }
             }
             return res;
-
         }
+
+
+        public static ListNode ReverseList(ListNode head)
+        {
+            var current = head;
+            ListNode prev = null;
+
+            while (current != null)
+            {
+                ListNode next = current.next;
+                current.next = prev;
+                prev = current;
+                current = next;
+            }
+            return prev;
+        }
+
+        /// <summary>
+        /// 19. Remove Nth Node From End of List
+        /// Given the head of a linked list, remove the nth node from the end of the list and return its head.
+        /// More info: Two poiters
+        /// </summary>
+        /// <param name="head"></param>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public static ListNode RemoveNthFromEnd(ListNode head, int n)
+        {
+            var dummy = new ListNode(0, head);
+            var left = dummy;
+            var right = head;
+
+            // Move right n steps ahead
+            while (n > 0 && right != null)
+            {
+                right = right.next;
+                n--;
+            }
+
+            // Move both until right hits end
+            while (right != null)
+            {
+                left = left.next;
+                right = right.next;
+            }
+
+            // Delete node
+            left.next = left.next.next;
+
+            return dummy.next;
+        }
+
+        /// <summary>
+        /// 15. 3Sum
+        /// Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
+        /// Notice that the solution set must not contain duplicate triplets.
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
+        //public static IList<IList<int>> ThreeSum(int[] nums)
+        //{
+        //    var res = new List<IList<int>>();
+        //    Dictionary<int, int> numsHash = new Dictionary<int, int>();
+        //    Dictionary<int, int> numsHashExcept = new Dictionary<int, int>();
+
+        //    for (int i = 0; i < nums.Length; i++)
+        //    {
+        //        numsHash[i] = nums[i];
+        //    }
+
+        //    for (int i = 0; i < nums.Length; i++)
+        //    {
+        //        for (int j = i + 1; j < nums.Length; j++)
+        //        {
+        //            numsHashExcept[i] = nums[i];
+        //            numsHashExcept[j] = nums[j];
+
+        //            var totalTwo = nums[i] + nums[j];
+
+        //            var thirdNum = numsHash.Except(numsHashExcept).Where(x => x.Value == 0 - totalTwo).FirstOrDefault();
+        //            if (thirdNum != null)
+        //            {
+        //                res.Add({ nums[i], nums[j], thirdNum. }
+        //            }
+
+        //        }
+        //    }
+        //}
+
+
 
 
     }
