@@ -47,24 +47,24 @@ namespace Test
         [TestMethod]
         public void TestIsSubtree01()
         {
-            var root = ComService.BuildTree([3, 4, 5, 1, 2]);
-            var subRoot = ComService.BuildTree([4, 1, 2]);
+            var root = ComService.CreateTreeNodeByArray([3, 4, 5, 1, 2]);
+            var subRoot = ComService.CreateTreeNodeByArray([4, 1, 2]);
             Assert.IsTrue(Blind70.IsSubtree(root, subRoot));
         }
 
         [TestMethod]
         public void TestIsSubtree02()
         {
-            var root = ComService.BuildTree([3, 4, 5, 1, 2, null, null, null, null, 0]);
-            var subRoot = ComService.BuildTree([4, 1, 2]);
+            var root = ComService.CreateTreeNodeByArray([3, 4, 5, 1, 2, null, null, null, null, 0]);
+            var subRoot = ComService.CreateTreeNodeByArray([4, 1, 2]);
             Assert.IsFalse(Blind70.IsSubtree(root, subRoot));
         }
 
         [TestMethod]
         public void TestIsSubtree03()
         {
-            var root = ComService.BuildTree([1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, 2]);
-            var subRoot = ComService.BuildTree([1, null, 1, null, 1, null, 1, null, 1, null, 1, 2]);
+            var root = ComService.CreateTreeNodeByArray([1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, 2]);
+            var subRoot = ComService.CreateTreeNodeByArray([1, null, 1, null, 1, null, 1, null, 1, null, 1, 2]);
             Assert.IsTrue(Blind70.IsSubtree(root, subRoot));
         }
 
@@ -97,7 +97,7 @@ namespace Test
         {
             Assert.AreEqual(49, Blind70.MaxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]));
         }
-        
+
         [TestMethod]
         public void TestRemoveNthFromEnd01()
         {
@@ -127,19 +127,27 @@ namespace Test
         //{
         //    Assert.AreEqual([[-1, -1, 2], [-1, 0, 1]], Blind70.ThreeSum([-1, 0, 1, 2, -1, -4]));
         //}
-        
+
         //[TestMethod]
         //public void TestThreeSum02()
         //{
         //    Assert.AreEqual([], Blind70.ThreeSum([0, 1, 1]));
         //}
-        
+
         //[TestMethod]
         //public void TestThreeSum03()
         //{
         //    Assert.AreEqual([[0, 0, 0]], Blind70.ThreeSum([0, 0, 0]));
         //}
 
+        [TestMethod]
+        public void Test01()
+        {
+            var input = ComService.CreateTreeNodeByArray([1, 2, 3, 4, 5]);
+            var res = ComService.TraversalTreeNodeByLevelOrder(input);
+
+            Assert.IsTrue(ComService.IsSameList(new List<int> { 1, 2, 3, 4, 5 }, res));
+        }
 
 
     }

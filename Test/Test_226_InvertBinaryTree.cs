@@ -16,8 +16,8 @@ namespace Test
         public void TestEx01()
         {
             var ex = new _226_InvertBinaryTree();
-            var result = ex.InvertTree(ComService.BuildTree([4, 2, 7, 1, 3, 6, 9]));
-            var expect = ComService.BuildTree([4, 7, 2, 9, 6, 3, 1]);
+            var result = ex.InvertTree(ComService.CreateTreeNodeByArray([4, 2, 7, 1, 3, 6, 9]));
+            var expect = ComService.CreateTreeNodeByArray([4, 7, 2, 9, 6, 3, 1]);
             Assert.IsTrue(new _100_SameTree().IsSameTree(expect, result));
         }
 
@@ -25,8 +25,8 @@ namespace Test
         public void TestEx02()
         {
             var ex = new _226_InvertBinaryTree();
-            var result = ex.InvertTree(ComService.BuildTree([1, 2]));
-            var expect = ComService.BuildTree([1, null, 2]);
+            var result = ex.InvertTree(ComService.CreateTreeNodeByArray([1, 2]));
+            var expect = ComService.CreateTreeNodeByArray([1, null, 2]);
             Assert.IsTrue(new _100_SameTree().IsSameTree(expect, result));
         }
     }
