@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -82,6 +83,31 @@ namespace Demo01
                 hashSet[nums[i]] = i;
             }
             throw new Exception("No solution found");
+        }
+
+        /// <summary>
+        /// 49. Group Anagrams
+        /// Given an array of strings strs, group the anagrams together.You can return the answer in any order.
+        /// </summary>
+        /// <param name="strs"></param>
+        /// <returns></returns>
+        public IList<IList<string>> GroupAnagrams(string[] strs)
+        {
+            Dictionary<string, List<string>> map = new Dictionary<string, List<string>>();
+            
+            foreach (string str in strs)
+            {
+                var c = str.ToArray();
+                Array.Sort(c);
+
+                var sorted = new string(c);
+
+                if (!map.ContainsKey(sorted))
+                    map[sorted] = new List<string>();
+                map[sorted].Add(str);
+            }
+
+            return new List<IList<string>>(map.Values);
         }
 
 
